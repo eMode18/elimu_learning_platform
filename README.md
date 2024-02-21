@@ -1,36 +1,18 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Elimu Learning Platform
 
-## Getting Started
+# Created By Eric for Alx
 
-First, run the development server:
+Welcome to the Elimu Learning Platform repository, where you can explore the codebase for our innovative online learning platform. Built using Next.js 13, React, Stripe, Mux, Prisma, Tailwind, and MySQL, Elimu offers a comprehensive solution for self-paced learning.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+## Key Features
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
-
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
-
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+- **Browse and Filter Courses**: Users can easily explore and discover courses based on their interests and learning objectives.
+- **Secure Course Enrollment and Payment Processing via Stripe**: Seamless integration with Stripe API ensures safe and convenient payment processing for course enrollment.
+- **Track Progress**: Students can track their progress within courses, marking chapters as completed or uncompleted to keep track of their learning journey.
+- **Dynamic Student Dashboard**: Personalized dashboard for each student, providing quick access to enrolled courses and progress tracking.
+- **Teacher Mode**: Teachers have the ability to create, edit, and manage courses, fostering a collaborative learning environment.
+- **Flexible Chapter Reordering**: Intuitive drag-and-drop functionality allows for easy reordering of course chapters, enhancing course organization and customization.
+- **Seamless Multimedia Content Upload and Processing with Mux**: Effortlessly upload and process multimedia content, including videos, for an enriched learning experience.
+- **Interactive Rich Text Editor for Course Descriptions**: Engage users with dynamic course descriptions using an interactive rich text editor.
+- **User Authentication Powered by Clerk**: Secure user authentication powered by Clerk, ensuring a seamless and safe login experience.
+- **Efficient ORM Operations with Prisma**: Prisma enables efficient database operations, optimizing performance and scalability.

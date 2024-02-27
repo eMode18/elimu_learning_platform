@@ -4,9 +4,7 @@ import { useState } from "react";
 import { useRouter } from "next/navigation";
 import * as z from "zod";
 import axios from "axios";
-import { zodResolver } from "@hookform/resolvers/zod";
 import { ImageIcon, Pencil, PlusCircle } from "lucide-react";
-import { useForm } from "react-hook-form";
 
 import { Course } from "@prisma/client";
 import Image from "next/image";
@@ -68,7 +66,7 @@ export const ImageForm = ({ initialData, courseId }: ImageFormProps) => {
       </div>
       {!isEditting &&
         (!initialData.imageUrl ? (
-          <div className="flex items-center justify-center h-60">
+          <div className="flex items-center justify-center h-60 bg-slate-200 rounded-md">
             <ImageIcon className="h-10 w-10 to-slate-500" />
           </div>
         ) : (

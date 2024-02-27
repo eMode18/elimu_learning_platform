@@ -8,6 +8,7 @@ const f = createUploadthing();
 const handleAuth = () => {
   const { userId } = auth();
   const isAuthorized = isTeacher(userId);
+
   if (!userId || !isAuthorized) throw new Error("Unauthorized");
   return { userId };
 };

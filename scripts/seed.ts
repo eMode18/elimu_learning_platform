@@ -11,11 +11,11 @@ async function main() {
       data: [
         { name: "Computer Science" },
         { name: "Music" },
-        { name: "Fitness" },
+        { name: "Health" },
         { name: "Photography" },
-        { name: "Accounting" },
+        { name: "Finance" },
         { name: "Engineering" },
-        { name: "Filming" },
+        { name: "Videography" },
       ],
     });
     // Log success message if categories are created successfully

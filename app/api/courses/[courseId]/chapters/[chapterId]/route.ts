@@ -1,16 +1,14 @@
-import { Mux } from "@mux/mux-node";
-import { auth } from "@clerk/nextjs";
+import Mux from "@mux/mux-node";
+
 import { NextResponse } from "next/server";
-
 import { db } from "@/lib/db";
+import { auth } from "@clerk/nextjs";
 
-// @ts-ignore
-const { Video } = new Mux(
-  process.env.MUX_TOKEN_ID!,
-  // @ts-ignore
-  process.env.MUX_TOKEN_SECRET!
-);
-
+const mux = new Mux({
+  tokenId: process.env["MUX_TOKEN_ID"],
+  tokenSecret: process.env["MUX_TOKEN_SECRET"],
+});
+//Delete function
 export async function DELETE(
   req: Request,
   { params }: { params: { courseId: string; chapterId: string } }
@@ -52,7 +50,7 @@ export async function DELETE(
       });
 
       if (existingMuxData) {
-        await Video.Assets.del(existingMuxData.assetId);
+        await mux.video.assets.delete(existingMuxData.assetId);
         await db.muxData.delete({
           where: {
             id: existingMuxData.id,
@@ -91,13 +89,14 @@ export async function DELETE(
     return new NextResponse("Internal Error", { status: 500 });
   }
 }
-
+//PATCH
 export async function PATCH(
   req: Request,
   { params }: { params: { courseId: string; chapterId: string } }
 ) {
   try {
     const { userId } = auth();
+
     const { isPublished, ...values } = await req.json();
 
     if (!userId) {
@@ -124,7 +123,7 @@ export async function PATCH(
         ...values,
       },
     });
-
+    //HANDLE Video Upload
     if (values.videoUrl) {
       const existingMuxData = await db.muxData.findFirst({
         where: {
@@ -133,7 +132,7 @@ export async function PATCH(
       });
 
       if (existingMuxData) {
-        await Video.Assets.del(existingMuxData.assetId);
+        await mux.video.assets.delete(existingMuxData.assetId);
         await db.muxData.delete({
           where: {
             id: existingMuxData.id,
@@ -141,9 +140,9 @@ export async function PATCH(
         });
       }
 
-      const asset = await Video.Assets.create({
+      const asset = await mux.video.assets.create({
         input: values.videoUrl,
-        playback_policy: "public",
+        playback_policy: ["public"],
         test: false,
       });
 
